@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            document.addEventListener('DOMContentLoaded',function(){
+                    let corrects = document.querySelectorAll(".correct");
+
+                    for(let i=0; i<corrects.length;i++){
+                        corrects[i].addEventListener('click',function(){
+                            corrects[i].style.backgroundColor = 'green';
+                            corrects[i].parentElement.querySelector('.feedback').innerHTML = 'Correct!';
+                        })
+                    }
+
+                    let incorrects = document.querySelectorAll(".incorrect");
+
+                    for(let i=0; i<incorrects.length;i++){
+                        incorrects[i].addEventListener('click',function(){
+                            incorrects[i].style.backgroundColor = 'red';
+                            incorrects[i].parentElement.querySelector('.feedback').innerHTML = 'Incorrect';
+                        })
+                    }
+
+                    document.querySelector("#check").addEventListener("click",function(){
+                        let input = document.querySelector("input");
+                        if (input.value == "dev anand"){
+                            input.style.backgroundColor = "green";
+                            input.parentElement.querySelector('.feedback').innerHTML = 'Correct!';
+                        }
+                        else{
+                            input.style.backgroundColor = "red";
+                            input.parentElement.querySelector('.feedback').innerHTML = 'Incorrect!';
+                        }
+                    })
+
+            })
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                 <h3>Who was the director of andhadhun ?</h3>
+                 <button class="incorrect">S.S Rajamouli</button>
+                 <button class="correct">Sri Ram raghvan</button>
+                 <button class="incorrect">Sujit sarcar</button>
+                 <button class="incorrect">Sneha patil</button>
+                 <p class = "feedback"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                 <h3>Who was the lead actor in Guide ?</h3>
+                 <input type="text">
+                 <button id="check">Check Answer</button>
+                 <p class = "feedback"></p>
+
+            </div>
+        </div>
+    </body>
+</html>
